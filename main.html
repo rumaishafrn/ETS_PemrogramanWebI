@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ETS Pemrograman Web I</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style> 
+        .card {
+            margin-left: 25px;
+            margin-right: 25px;
+            margin-top: 50px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .judul{
+            padding-top: 40px;
+            font-size: 35px;
+            font-family: Inter;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .subjudul{
+            font-size: 20px;
+            font-family: Inter;
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <p class="judul"> ETS Pemprograman Web I : Movies</p>
+    <p class="subjudul">Rumaisha Afrina - 5025221146</p>
+
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+"
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"id="title">Special Title</h5>
+              <p class="card-insde" id="isian">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <script>
+        console.log("AYO PLIS BISA");
+
+        const url = 'https://it-its.id/api/movies';
+
+            const getData = async () => {
+
+                    const res = await fetch(url);
+                    const data = await res.json();
+
+                    const Title = data.quotes;
+
+                    const input = ["TheyShallNotGrowOld", "MidnightFamily", "PainGain", "TheIrish", "OUAT", "marriagestory", "littlewomen", "Parasite"];
+
+                    input.map((curr) => {
+                        document.getElementById(curr).innerText = (Title[curr] = Title[curr]);
+                    })
+
+            }
+            
+            getData();
+
+
+    
+    </script>
+</body>
+</html>
+
+<!-- <script>
+    PERCOBAAN 1
+
+      console.log("test");
+
+      var request = new XMLHttpRequest()
+      request.open('GET', 'https://it-its.id/api/movies', true)
+      request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.res)
+        if (request.status >= 200 && request.status < 400) {
+          data.forEach((movie) => {
+            const h1 = document.createElement('h1')
+            h1.textContent = movie.title
+
+            const p = document.createElement('p')
+            movie.description = movie.description.substring(0, 300)
+            p.textContent = ${movie.description}...
+
+            container.appendChild(card)
+            card.appendChild(h1)
+            card.appendChild(p)
+          })
+        } 
+        
+        else {
+          console.log('error')
+        }
+      }
+
+      request.send()
+    </script>-->
+
+
+
+    <!--
+        PERCOBAAN 2
+
+        console.log("YU BISA YU");
+
+        const endpoint = 'https://it-its.id/api/movies';
+
+        const getData = async () => {
+            const res = await fetch(endpoint);
+            const data = await res.json();
+            const rate = data.plot;
+            const input = ["TheyShallNotGrowOld", "MidnightFamily", "PainGain", "TheIrish", "OUAT", "marriagestory", "littlewomen", "Parasite"];
+
+            input.map((curr) => {
+                document.getELementById(curr).innerText = (rate[curr] = rate[curr]);
+            })
+        }
+
+        getData();
+    -->
