@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title>ETS Pemrograman Web I</title>
 
@@ -38,7 +41,7 @@
     <p class="subjudul">Rumaisha Afrina - 5025221146</p>
 
     <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="col">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"id="title">Special Title</h5>
@@ -57,7 +60,7 @@
       </div>
 "
       <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="col">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"id="title">Special Title</h5>
@@ -76,7 +79,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="col">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"id="title">Special Title</h5>
@@ -95,7 +98,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="col">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"id="title">Special Title</h5>
@@ -114,7 +117,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="col">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"id="title">Special Title</h5>
@@ -133,32 +136,43 @@
       </div>
     
     <script>
-        console.log("AYO PLIS BISA");
 
-        const url = 'https://it-its.id/api/movies';
+        console.log('ALHAMDULILLAH BISA');
 
-            const getData = async () => {
+        fetch('https://it-its.id/api/movies')
 
-                    const res = await fetch(url);
-                    const data = await res.json();
+        .then(response => {
 
-                    const Title = data.quotes;
+        return response.json();
+        })
 
-                    const input = ["TheyShallNotGrowOld", "MidnightFamily", "PainGain", "TheIrish", "OUAT", "marriagestory", "littlewomen", "Parasite"];
+        .then( data => {
 
-                    input.map((curr) => {
-                        document.getElementById(curr).innerText = (Title[curr] = Title[curr]);
-                    })
+          const movies = data.slice(0, 10); 
+          const isinya = document.querySelectorAll('.card');
 
+          for (let i=0; i<isinya.length; i++) {
+
+            const judul = isinya[i].querySelector('.card-title');
+            const plot = isinya[i].querySelector('.card-inside');
+
+            if (movies[i]) {
+
+              judul.textContent = movies[i].Title; 
+              plot.textContent = movies[i].Plot;
             }
             
-            getData();
+          }
+        })
 
 
     
     </script>
+
 </body>
 </html>
+
+
 
 <!-- <script>
     PERCOBAAN 1
@@ -215,3 +229,20 @@
 
         getData();
     -->
+
+<!--
+    PERCOBAAN 3
+    const getData = async () => {
+
+                    const res = await fetch(url);
+                    const data = await res.json();
+
+                    const Title = data.quotes;
+
+                    const input = ["TheyShallNotGrowOld", "MidnightFamily", "PainGain", "TheIrish", "OUAT", "marriagestory", "littlewomen", "Parasite"];
+
+                    input.map((curr) => {
+                        document.getElementById(curr).innerText = (Title[curr] = Title[curr]);
+                    })
+
+-->
